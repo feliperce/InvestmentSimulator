@@ -1,6 +1,6 @@
-package com.example.githubviewer.data.statushandler
+package com.feliperce.investmentsimulator.data.statushandler
 
-import com.example.githubviewer.exception.ErrorException
+import com.feliperce.investmentsimulator.exception.ErrorException
 
 sealed class Status {
     object Success : Status()

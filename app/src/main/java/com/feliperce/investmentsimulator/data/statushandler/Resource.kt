@@ -1,6 +1,5 @@
 package com.feliperce.investmentsimulator.data.statushandler
 
-import com.example.githubviewer.data.statushandler.Status
 import com.feliperce.investmentsimulator.exception.ErrorException
 
 data class Resource<out T>(val status: Status, val data: T? = null, val message: Int = -1) {

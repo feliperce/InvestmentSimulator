@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/simulatorFragment">
+
+    <fragment
+        android:id="@+id/simulatorFragment"
+        android:name="com.feliperce.investmentsimulator.feat.simulator.ui.SimulatorFragment"
+        android:label="fragment_simulator"
+        tools:layout="@layout/fragment_simulator" >
+        <action
+            android:id="@+id/action_simulatorFragment_to_simulationResultFragment"
+            app:destination="@id/simulationResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/simulationResultFragment"
+        android:name="com.feliperce.investmentsimulator.feat.simulationresult.ui.SimulationResultFragment"
+        android:label="fragment_simulation_result"
+        tools:layout="@layout/fragment_simulation_result" />
+</navigation>
