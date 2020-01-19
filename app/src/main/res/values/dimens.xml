@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="default_margin">16dp</dimen>
+
+    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_big">21sp</dimen>
+    <dimen name="text_realy_big">30sp</dimen>
+
+    <dimen name="button_corner">20dp</dimen>
+
+</resources>
