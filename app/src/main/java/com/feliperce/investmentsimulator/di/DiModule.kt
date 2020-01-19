@@ -2,9 +2,12 @@ package com.feliperce.investmentsimulator.di
 
 import com.feliperce.investmentsimulator.BuildConfig
 import com.feliperce.investmentsimulator.data.remote.service.InvestmentService
+import com.feliperce.investmentsimulator.data.repository.SimulatorRepository
+import com.feliperce.investmentsimulator.feat.simulator.viewmodel.SimulatorViewModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -39,9 +42,9 @@ val retrofitModule = module {
 }
 
 val repositoryModule = module {
-
+    factory { SimulatorRepository(get(), get()) }
 }
 
 val viewModelModule = module {
-
+    viewModel { SimulatorViewModel(get()) }
 }

@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Investment Simulator</string>
 
+    <!-- ERROR -->
+    <string name="error_generic">Ocorreu um erro inesperado, tente novamente mais tarde.</string>
+    <string name="no_connection">Você está sem conexão com a internet.</string>
+    <string name="error_timeout">O serviço está temporariamente indisponível, tente novamente mais tarde</string>
+
     <string name="simulator_toapply_label">Quanto você gostaria de aplicar? *</string>
     <string name="simulator_date_label">Qual a data de vencimento do investimento? *</string>
     <string name="simulator_percent_label">Qual o percentual do CDI do investimento? *</string>

@@ -1,95 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="@dimen/default_margin"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".feat.simulator.ui.SimulatorFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/toApplyTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/simulator_toapply_label"
-        android:gravity="center"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/toApplyEditText"/>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.feliperce.investmentsimulator.feat.simulator.viewmodel.SimulatorViewModel" />
+    </data>
 
-    <EditText
-        android:id="@+id/toApplyEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/simulator_toapply_hint"
-        style="@style/SimulatorEditText"
-        app:layout_constraintTop_toBottomOf="@+id/toApplyTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/applyMonthTextView"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/default_margin"
+        tools:context=".feat.simulator.ui.SimulatorFragment">
 
-    <TextView
-        android:id="@+id/applyMonthTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/simulator_date_label"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintTop_toBottomOf="@+id/toApplyEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/applyMonthEditText"/>
+        <TextView
+            android:id="@+id/toApplyTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/simulator_toapply_label"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/toApplyEditText" />
 
-    <EditText
-        android:id="@+id/applyMonthEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        style="@style/SimulatorEditText"
-        android:hint="@string/simulator_date_hint"
-        app:layout_constraintTop_toBottomOf="@+id/applyMonthTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/percentTextView"/>
+        <EditText
+            android:id="@+id/toApplyEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/simulator_toapply_hint"
+            style="@style/SimulatorEditText"
+            app:layout_constraintTop_toBottomOf="@+id/toApplyTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/applyMonthTextView" />
 
-    <TextView
-        android:id="@+id/percentTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/simulator_percent_label"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintTop_toBottomOf="@+id/applyMonthEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/percentEditText"/>
+        <TextView
+            android:id="@+id/applyMonthTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/simulator_date_label"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintTop_toBottomOf="@+id/toApplyEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/applyMonthEditText" />
 
-    <EditText
-        android:id="@+id/percentEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        style="@style/SimulatorEditText"
-        android:hint="@string/simulator_percent_hint"
-        app:layout_constraintTop_toBottomOf="@+id/percentTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/simulateButton"/>
+        <EditText
+            android:id="@+id/applyMonthEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/SimulatorEditText"
+            android:hint="@string/simulator_date_hint"
+            app:layout_constraintTop_toBottomOf="@+id/applyMonthTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/percentTextView" />
 
-    <Button
-        android:id="@+id/simulateButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:text="@string/simulator_simulate_button"
-        android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintVertical_bias=".5"
-        style="@style/DefaultButton"
-        app:layout_constraintTop_toBottomOf="@+id/percentEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/percentTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/simulator_percent_label"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintTop_toBottomOf="@+id/applyMonthEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/percentEditText" />
+
+        <EditText
+            android:id="@+id/percentEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/SimulatorEditText"
+            android:hint="@string/simulator_percent_hint"
+            app:layout_constraintTop_toBottomOf="@+id/percentTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/simulateButton" />
+
+        <Button
+            android:id="@+id/simulateButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:text="@string/simulator_simulate_button"
+            android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintVertical_bias=".5"
+            style="@style/DefaultButton"
+            app:layout_constraintTop_toBottomOf="@+id/percentEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
