@@ -29,14 +29,15 @@
 
         <EditText
             android:id="@+id/toApplyEditText"
+            style="@style/SimulatorEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/simulator_toapply_hint"
-            style="@style/SimulatorEditText"
-            app:layout_constraintTop_toBottomOf="@+id/toApplyTextView"
-            app:layout_constraintStart_toStartOf="parent"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toTopOf="@+id/applyMonthTextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/applyMonthTextView" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toApplyTextView" />
 
         <TextView
             android:id="@+id/applyMonthTextView"
@@ -52,14 +53,17 @@
 
         <EditText
             android:id="@+id/applyMonthEditText"
+            style="@style/SimulatorEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/SimulatorEditText"
             android:hint="@string/simulator_date_hint"
-            app:layout_constraintTop_toBottomOf="@+id/applyMonthTextView"
-            app:layout_constraintStart_toStartOf="parent"
+            android:inputType="date"
+            android:clickable="false"
+            android:focusable="false"
+            app:layout_constraintBottom_toTopOf="@+id/percentTextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/percentTextView" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/applyMonthTextView" />
 
         <TextView
             android:id="@+id/percentTextView"

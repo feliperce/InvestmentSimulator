@@ -30,6 +30,7 @@
     <string name="simulation_result_simulate_button">Simular novamente</string>
 
     <string name="formated_currency_value">R$ %s</string>
+    <string name="formated_date">%s/%s/%s</string>
 
 
 </resources>

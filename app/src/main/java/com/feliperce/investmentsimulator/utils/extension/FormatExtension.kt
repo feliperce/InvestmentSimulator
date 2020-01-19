@@ -1,5 +1,7 @@
-package com.example.githubviewer.extension
+package com.feliperce.investmentsimulator.utils.extension
 
+import java.math.BigDecimal
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -16,4 +18,17 @@ fun String.iso9801ToDateFormattedString(requiredFormat: String = "dd/MM/yyyy"): 
     } else {
         df2.format(result1)
     }
+}
+
+fun String.stringCurrencyToBigDecimal(locale: Locale): BigDecimal? {
+    val replaceable = String.format(
+        "[%s,.\\s]",
+        NumberFormat.getCurrencyInstance(locale).currency?.symbol
+    )
+    val cleanString = this.replace(replaceable.toRegex(), "")
+    return BigDecimal(cleanString).setScale(
+        2, BigDecimal.ROUND_FLOOR
+    ).divide(
+        BigDecimal(100), BigDecimal.ROUND_FLOOR
+    )
 }

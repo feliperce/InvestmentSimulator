@@ -12,6 +12,9 @@ class SimulatorViewModel(private val simulatorRepository: SimulatorRepository) :
     private val dataLoading = MutableLiveData<Boolean>()
     val dataLoadingLiveData: LiveData<Boolean> = dataLoading
 
+    private val formValidation = MutableLiveData<Boolean>()
+    val formValidationLiveData: LiveData<Boolean> = formValidation
+
     private val simulator = MutableLiveData<InvestmentSimulationResponse>()
     var simulatorLiveData: LiveData<InvestmentSimulationResponse> = simulator
 
