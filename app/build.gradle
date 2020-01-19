@@ -3,8 +3,18 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+def ENDPOINT_DEBUG_URL = "https://api-simulator-calc.easynvest.com.br/"
+def ENDPOINT_RELEASE_URL = "https://api-simulator-calc.easynvest.com.br/"
 
 android {
+
+    dataBinding {
+        enabled true
+    }
+
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -19,6 +29,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", 'ENDPOINT_URL', "\"$ENDPOINT_RELEASE_URL\""
+        }
+        debug {
+            buildConfigField "String", 'ENDPOINT_URL', "\"$ENDPOINT_DEBUG_URL\""
+        }
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
         }
     }
 }
