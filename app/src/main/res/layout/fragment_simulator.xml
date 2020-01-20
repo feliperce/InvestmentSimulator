@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/default_margin"
+        app:errorHandlerSnackbar="@{viewModel.errorHandlerLiveData}"
         tools:context=".feat.simulator.ui.SimulatorFragment">
 
         <TextView
@@ -84,6 +85,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/simulator_percent_hint"
             android:inputType="number"
+            android:maxLength="4"
             app:layout_constraintBottom_toTopOf="@+id/simulateButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

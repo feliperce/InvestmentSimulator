@@ -20,7 +20,22 @@ fun String.iso9801ToDateFormattedString(requiredFormat: String = "dd/MM/yyyy"): 
     }
 }
 
-fun String.stringCurrencyToBigDecimal(locale: Locale): BigDecimal? {
+fun String.toFormattedDate(currentFormat: String = "dd/MM/yyyy",
+                           requiredFormat: String = "yyyy-MM-dd"): String {
+
+    var format =
+        SimpleDateFormat(currentFormat, Locale.getDefault())
+    val newDate = format.parse(this)
+
+    return if (newDate == null) {
+        ""
+    } else {
+        format = SimpleDateFormat(requiredFormat, Locale.getDefault())
+        format.format(newDate)
+    }
+}
+
+fun String.stringCurrencyToBigDecimal(locale: Locale = Locale("pt", "BR")): BigDecimal {
     val replaceable = String.format(
         "[%s,.\\s]",
         NumberFormat.getCurrencyInstance(locale).currency?.symbol

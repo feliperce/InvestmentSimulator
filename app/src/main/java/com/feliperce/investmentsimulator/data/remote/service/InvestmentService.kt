@@ -5,6 +5,8 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
+import java.math.BigDecimal
 
 interface InvestmentService {
 
@@ -14,11 +16,11 @@ interface InvestmentService {
 
     @GET(INVESTMENT_SIMULATE_PATH)
     fun getInvestmentSimulation(
-        @Path("investmentAmount") investmentAmount: Long,
-        @Path("index") index: String,
-        @Path("rate") rate: Int,
-        @Path("isTaxFree") isTaxFree: Boolean,
-        @Path("maturityDate") maturityDate: String
+        @Query("investedAmount") investedAmount: BigDecimal,
+        @Query("index") index: String,
+        @Query("rate") rate: Int,
+        @Query("isTaxFree") isTaxFree: Boolean,
+        @Query("maturityDate") maturityDate: String
     ): Deferred<Response<InvestmentSimulationResponse>>
 
 }

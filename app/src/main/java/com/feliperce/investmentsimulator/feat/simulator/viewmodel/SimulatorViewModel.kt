@@ -3,9 +3,15 @@ package com.feliperce.investmentsimulator.feat.simulator.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.feliperce.investmentsimulator.data.remote.response.InvestmentSimulationResponse
 import com.feliperce.investmentsimulator.data.repository.SimulatorRepository
+import com.feliperce.investmentsimulator.data.statushandler.Status
 import com.feliperce.investmentsimulator.exception.ErrorException
+import com.feliperce.investmentsimulator.utils.extension.stringCurrencyToBigDecimal
+import com.feliperce.investmentsimulator.utils.extension.toFormattedDate
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class SimulatorViewModel(private val simulatorRepository: SimulatorRepository) : ViewModel() {
 
@@ -33,11 +39,35 @@ class SimulatorViewModel(private val simulatorRepository: SimulatorRepository) :
         }
     }
 
-    fun simulate(investmentAmount: Long,
+    fun simulate(investedAmount: String,
                  index: String,
-                 rate: Int,
+                 rate: String,
                  isTaxFree: Boolean,
                  maturityDate: String) {
+
+        val amount = investedAmount.stringCurrencyToBigDecimal()
+
+        viewModelScope.launch {
+            simulatorRepository.getSimulation(
+                amount,
+                index,
+                rate.toInt(),
+                isTaxFree,
+                maturityDate.toFormattedDate()
+            ).collect { res ->
+                when (res.status) {
+                    is Status.Success -> {
+                        simulator.postValue(res.data)
+                    }
+                    is Status.Loading -> {
+                        dataLoading.postValue(res.status.isLoading)
+                    }
+                    is Status.Error -> {
+                        errorHandler.postValue(res.status.exception)
+                    }
+                }
+            }
+        }
 
     }
 }

@@ -10,13 +10,14 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import retrofit2.Retrofit
+import java.math.BigDecimal
 
 class SimulatorRepository(private val retrofit: Retrofit,
                           private val investmentService: InvestmentService) {
 
     @WorkerThread
     suspend fun getSimulation(
-        investmentAmount: Long,
+        investedAmount: BigDecimal,
         index: String,
         rate: Int,
         isTaxFree: Boolean,
@@ -24,7 +25,7 @@ class SimulatorRepository(private val retrofit: Retrofit,
     ): Flow<Resource<InvestmentSimulationResponse>> = flow {
         emit(retrofit.networkCall {
             investmentService.getInvestmentSimulation(
-                investmentAmount,
+                investedAmount,
                 index,
                 rate,
                 isTaxFree,

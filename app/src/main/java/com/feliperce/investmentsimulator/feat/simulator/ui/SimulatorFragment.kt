@@ -52,6 +52,16 @@ class SimulatorFragment : Fragment() {
             formValidate()
         }
 
+        simulateButton.setOnClickListener {
+            viewModel.simulate(
+                toApplyEditText.text.toString(),
+                getString(R.string.index_cdi),
+                percentEditText.text.toString(),
+                false,
+                applyMonthEditText.text.toString()
+            )
+        }
+
     }
 
     private fun formValidate() {
