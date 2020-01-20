@@ -12,7 +12,10 @@
         tools:layout="@layout/fragment_simulator" >
         <action
             android:id="@+id/action_simulatorFragment_to_simulationResultFragment"
-            app:destination="@id/simulationResultFragment" />
+            app:destination="@id/simulationResultFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/simulatorFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/simulationResultFragment"
@@ -22,5 +25,10 @@
         <argument
             android:name="InvestmentArg"
             app:argType="com.feliperce.investmentsimulator.data.remote.response.InvestmentSimulationResponse" />
+        <action
+            android:id="@+id/action_simulationResultFragment_to_simulatorFragment"
+            app:destination="@id/simulatorFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
