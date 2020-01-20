@@ -47,3 +47,13 @@ fun String.stringCurrencyToBigDecimal(locale: Locale = Locale("pt", "BR")): BigD
         BigDecimal(100), BigDecimal.ROUND_FLOOR
     )
 }
+
+fun BigDecimal.toCurrencyString(locale: Locale = Locale("pt", "BR")): String {
+    var formatted = NumberFormat.getCurrencyInstance(locale).format(this)
+    val replaceable =
+        String.format(
+            "[%s\\s]",
+            NumberFormat.getCurrencyInstance(locale).currency?.symbol
+        )
+    return formatted.replace(replaceable.toRegex(), "")
+}

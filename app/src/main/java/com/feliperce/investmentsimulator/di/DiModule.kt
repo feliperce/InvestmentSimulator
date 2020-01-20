@@ -3,6 +3,7 @@ package com.feliperce.investmentsimulator.di
 import com.feliperce.investmentsimulator.BuildConfig
 import com.feliperce.investmentsimulator.data.remote.service.InvestmentService
 import com.feliperce.investmentsimulator.data.repository.SimulatorRepository
+import com.feliperce.investmentsimulator.feat.simulationresult.viewModel.SimulationResultViewModel
 import com.feliperce.investmentsimulator.feat.simulator.viewmodel.SimulatorViewModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
@@ -47,4 +48,5 @@ val repositoryModule = module {
 
 val viewModelModule = module {
     viewModel { SimulatorViewModel(get()) }
+    viewModel { SimulationResultViewModel() }
 }

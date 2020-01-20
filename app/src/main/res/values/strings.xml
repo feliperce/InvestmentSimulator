@@ -21,6 +21,7 @@
     <string name="simulation_result_initial_amount_label">Valor aplicado inicialmente</string>
     <string name="simulation_result_gross_amount_label">Valor bruto do investimento</string>
     <string name="simulation_result_profit_amount_label">Valor do rendimento</string>
+    <string name="simulation_result_ir_value">R$ %s(%%)</string>
     <string name="simulation_result_ir_amount_label">IR sobre o investimento</string>
     <string name="simulation_result_net_amount_label">Valor líquido do investimento</string>
     <string name="simulation_result_maturity_date_label">Data de resgate</string>
@@ -31,8 +32,9 @@
     <string name="simulation_result_rate_profit_label">Rentabilidade no período</string>
     <string name="simulation_result_simulate_button">Simular novamente</string>
 
-    <string name="formated_currency_value">R$ %s</string>
-    <string name="formated_date">%s/%s/%s</string>
+    <string name="formatted_currency_value">R$ %s</string>
+    <string name="formatted_date">%s/%s/%s</string>
+    <string name="formatted_percent_value">%s %%</string>
 
 
 </resources>
