@@ -79,14 +79,15 @@
 
         <EditText
             android:id="@+id/percentEditText"
+            style="@style/SimulatorEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/SimulatorEditText"
             android:hint="@string/simulator_percent_hint"
-            app:layout_constraintTop_toBottomOf="@+id/percentTextView"
-            app:layout_constraintStart_toStartOf="parent"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/simulateButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/simulateButton" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/percentTextView" />
 
         <Button
             android:id="@+id/simulateButton"
@@ -97,8 +98,19 @@
             android:text="@string/simulator_simulate_button"
             android:layout_marginTop="@dimen/default_margin"
             app:layout_constraintVertical_bias=".5"
+            app:boolEnabled="@{viewModel.formValidationLiveData}"
             style="@style/DefaultButton"
             app:layout_constraintTop_toBottomOf="@+id/percentEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:boolVisibility="@{viewModel.dataLoadingLiveData}"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />

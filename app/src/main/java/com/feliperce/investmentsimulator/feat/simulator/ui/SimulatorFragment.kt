@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.EditText
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.feliperce.investmentsimulator.R
@@ -37,11 +38,28 @@ class SimulatorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        toApplyEditText.addTextChangeWithCurrencyFormatListener()
+
+        toApplyEditText.addTextChangeWithCurrencyFormatListener(afterTextFormatted = { str ->
+            formValidate()
+        })
 
         applyMonthEditText.onDateSelectListener(requireContext()) {
             applyMonthEditText.setText(this)
+            formValidate()
         }
+
+        percentEditText.addTextChangedListener {
+            formValidate()
+        }
+
+    }
+
+    private fun formValidate() {
+        viewModel.formValidate(
+            toApplyEditText.text.toString(),
+            applyMonthEditText.text.toString(),
+            percentEditText.text.toString()
+        )
     }
 
 

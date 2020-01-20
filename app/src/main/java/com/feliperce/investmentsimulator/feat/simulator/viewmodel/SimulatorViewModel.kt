@@ -21,12 +21,16 @@ class SimulatorViewModel(private val simulatorRepository: SimulatorRepository) :
     private val errorHandler = MutableLiveData<ErrorException>()
     val errorHandlerLiveData: LiveData<ErrorException> = errorHandler
 
-    fun validate(investmentAmount: Long,
-                 index: String,
-                 rate: Int,
-                 isTaxFree: Boolean,
-                 maturityDate: String) {
-
+    fun formValidate(toApply: String,
+                 applyMonth: String,
+                 percent: String) {
+        if (toApply.isNotBlank() &&
+                applyMonth.isNotBlank() &&
+                percent.isNotBlank()) {
+            formValidation.postValue(true)
+        } else {
+            formValidation.postValue(false)
+        }
     }
 
     fun simulate(investmentAmount: Long,
