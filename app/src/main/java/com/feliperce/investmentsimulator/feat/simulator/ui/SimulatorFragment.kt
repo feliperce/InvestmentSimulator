@@ -10,6 +10,8 @@ import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.feliperce.investmentsimulator.R
 import com.feliperce.investmentsimulator.databinding.FragmentSimulatorBinding
 import com.feliperce.investmentsimulator.feat.simulator.viewmodel.SimulatorViewModel
@@ -38,7 +40,12 @@ class SimulatorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initListeners()
+        initObservers()
 
+    }
+
+    private fun initListeners() {
         toApplyEditText.addTextChangeWithCurrencyFormatListener(afterTextFormatted = { str ->
             formValidate()
         })
@@ -61,7 +68,18 @@ class SimulatorFragment : Fragment() {
                 applyMonthEditText.text.toString()
             )
         }
+    }
 
+    private fun initObservers() {
+        viewModel.let { vm ->
+            vm.simulatorLiveData.observe(viewLifecycleOwner, Observer {
+                it?.let { resp ->
+                    val action = SimulatorFragmentDirections
+                        .actionSimulatorFragmentToSimulationResultFragment(resp)
+                    findNavController().navigate(action)
+                }
+            })
+        }
     }
 
     private fun formValidate() {

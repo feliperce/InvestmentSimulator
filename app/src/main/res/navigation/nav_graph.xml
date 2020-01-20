@@ -18,5 +18,9 @@
         android:id="@+id/simulationResultFragment"
         android:name="com.feliperce.investmentsimulator.feat.simulationresult.ui.SimulationResultFragment"
         android:label="fragment_simulation_result"
-        tools:layout="@layout/fragment_simulation_result" />
+        tools:layout="@layout/fragment_simulation_result" >
+        <argument
+            android:name="InvestmentArg"
+            app:argType="com.feliperce.investmentsimulator.data.remote.response.InvestmentSimulationResponse" />
+    </fragment>
 </navigation>
