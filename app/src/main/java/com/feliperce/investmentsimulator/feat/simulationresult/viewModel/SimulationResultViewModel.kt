@@ -26,6 +26,8 @@ class SimulationResultViewModel : ViewModel() {
 
     private val irAmount = MutableLiveData<String>()
     val irAmountLiveData: LiveData<String> = irAmount
+    private val taxRate = MutableLiveData<String>()
+    val taxRateLiveData: LiveData<String> = taxRate
 
     private val netValueAmount = MutableLiveData<String>()
     val netAmountLiveData: LiveData<String> = netValueAmount
@@ -55,14 +57,15 @@ class SimulationResultViewModel : ViewModel() {
             profitTotal.postValue(grossAmountProfit?.toCurrencyString())
             initialAmount.postValue(investmentParameter?.investedAmount?.toCurrencyString())
             profitAmount.postValue(grossAmountProfit?.toCurrencyString())
-            irAmount.postValue(taxesAmount?.toCurrencyString()) // formatar com ( )
+            irAmount.postValue(taxesAmount?.toCurrencyString())
+            taxRate.postValue(taxesRate?.toPlainString())
             netValueAmount.postValue(netAmount?.toCurrencyString())
             maturityDate.postValue(investmentParameter?.maturityDate?.iso9801ToDateFormattedString())
             maturityDays.postValue(investmentParameter?.maturityTotalDays.toString())
-            monthProfit.postValue(monthlyGrossRateProfit?.toPlainString()) // formatar com %
-            investmentPercent.postValue(investmentParameter?.rate?.toPlainString()) // formatar com %
-            yearProfit.postValue(annualGrossRateProfit?.toPlainString()) // formatar com %
-            rateValueProfit.postValue(rateProfit?.toPlainString()) // formatar com %
+            monthProfit.postValue(monthlyGrossRateProfit?.toPlainString())
+            investmentPercent.postValue(investmentParameter?.rate?.toPlainString())
+            yearProfit.postValue(annualGrossRateProfit?.toPlainString())
+            rateValueProfit.postValue(rateProfit?.toPlainString())
         }
     }
 }

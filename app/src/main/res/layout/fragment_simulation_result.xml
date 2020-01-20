@@ -140,7 +140,7 @@
                     android:id="@+id/irAmountTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.irAmountLiveData}"
+                    android:text= "@{String.format(@string/simulation_result_ir_value, viewModel.irAmountLiveData, viewModel.taxRateLiveData)}"
                     tools:text="R$ 15,52(17,50%)"
                     android:textStyle="bold"
                     app:layout_constraintBaseline_toBaselineOf="@+id/irAmountLabelTextView"
