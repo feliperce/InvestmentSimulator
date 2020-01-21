@@ -4,7 +4,6 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.DatePicker
 import android.widget.EditText
 import com.feliperce.investmentsimulator.R
 import java.math.BigDecimal
@@ -73,9 +72,14 @@ fun EditText.onDateSelectListener(context: Context, block: String.() -> Unit) {
         Calendar.getInstance().also { c ->
             DatePickerDialog(context,
                 { view, year, month, day ->
-                    block(context.getString(R.string.formatted_date,
-                        day.toString(), (month+1).toString(), year.toString()))
-                }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)).also {
+                    block(
+                        context.getString(
+                            R.string.formatted_date,
+                            day.toString(), (month + 1).toString(), year.toString()
+                        )
+                    )
+                }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)
+            ).also {
                 it.show()
             }
         }

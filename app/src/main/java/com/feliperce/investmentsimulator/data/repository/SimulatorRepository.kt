@@ -12,8 +12,10 @@ import kotlinx.coroutines.flow.onStart
 import retrofit2.Retrofit
 import java.math.BigDecimal
 
-class SimulatorRepository(private val retrofit: Retrofit,
-                          private val investmentService: InvestmentService) {
+class SimulatorRepository(
+    private val retrofit: Retrofit,
+    private val investmentService: InvestmentService
+) {
 
     @WorkerThread
     suspend fun getSimulation(

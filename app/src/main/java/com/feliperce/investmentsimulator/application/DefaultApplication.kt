@@ -11,11 +11,13 @@ class DefaultApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            modules(arrayListOf(
-                retrofitModule,
-                repositoryModule,
-                viewModelModule
-            ))
+            modules(
+                arrayListOf(
+                    retrofitModule,
+                    repositoryModule,
+                    viewModelModule
+                )
+            )
         }
     }
 }

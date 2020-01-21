@@ -27,23 +27,28 @@ class SimulatorViewModel(private val simulatorRepository: SimulatorRepository) :
     private val errorHandler = MutableLiveData<ErrorException>()
     val errorHandlerLiveData: LiveData<ErrorException> = errorHandler
 
-    fun formValidate(toApply: String,
-                 applyMonth: String,
-                 percent: String) {
+    fun formValidate(
+        toApply: String,
+        applyMonth: String,
+        percent: String
+    ) {
         if (toApply.isNotBlank() &&
-                applyMonth.isNotBlank() &&
-                percent.isNotBlank()) {
+            applyMonth.isNotBlank() &&
+            percent.isNotBlank()
+        ) {
             formValidation.postValue(true)
         } else {
             formValidation.postValue(false)
         }
     }
 
-    fun simulate(investedAmount: String,
-                 index: String,
-                 rate: String,
-                 isTaxFree: Boolean,
-                 maturityDate: String) {
+    fun simulate(
+        investedAmount: String,
+        index: String,
+        rate: String,
+        isTaxFree: Boolean,
+        maturityDate: String
+    ) {
 
         val amount = investedAmount.stringCurrencyToBigDecimal()
 

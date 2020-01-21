@@ -20,8 +20,10 @@ fun String.iso9801ToDateFormattedString(requiredFormat: String = "dd/MM/yyyy"): 
     }
 }
 
-fun String.toFormattedDate(currentFormat: String = "dd/MM/yyyy",
-                           requiredFormat: String = "yyyy-MM-dd"): String {
+fun String.toFormattedDate(
+    currentFormat: String = "dd/MM/yyyy",
+    requiredFormat: String = "yyyy-MM-dd"
+): String {
 
     var format =
         SimpleDateFormat(currentFormat, Locale.getDefault())

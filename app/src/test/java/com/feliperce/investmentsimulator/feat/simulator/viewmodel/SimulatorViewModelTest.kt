@@ -2,17 +2,16 @@ package com.feliperce.investmentsimulator.feat.simulator.viewmodel
 
 import com.feliperce.investmentsimulator.data.repository.SimulatorRepository
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.Matchers.*
+import org.hamcrest.Matchers.notNullValue
+import org.hamcrest.Matchers.nullValue
+import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.hamcrest.CoreMatchers.`is` as Is
-
-import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.koin.test.AutoCloseKoinTest
 import org.koin.test.inject
 import org.robolectric.RobolectricTestRunner
-import java.lang.NumberFormatException
+import org.hamcrest.CoreMatchers.`is` as Is
 
 @RunWith(RobolectricTestRunner::class)
 class SimulatorViewModelTest : AutoCloseKoinTest() {
@@ -32,11 +31,11 @@ class SimulatorViewModelTest : AutoCloseKoinTest() {
         with(viewModel) {
             formValidate("1.000,52", "20/3/2021", "100")
             formValidationLiveData.observeForever {
-                assertThat(it , Is(notNullValue()))
+                assertThat(it, Is(notNullValue()))
                 assertThat(it, Is(true))
             }
             simulatorLiveData.observeForever {
-                assertThat(it , Is(notNullValue()))
+                assertThat(it, Is(notNullValue()))
             }
         }
 

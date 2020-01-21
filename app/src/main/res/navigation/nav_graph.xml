@@ -9,7 +9,7 @@
         android:id="@+id/simulatorFragment"
         android:name="com.feliperce.investmentsimulator.feat.simulator.ui.SimulatorFragment"
         android:label="fragment_simulator"
-        tools:layout="@layout/fragment_simulator" >
+        tools:layout="@layout/fragment_simulator">
         <action
             android:id="@+id/action_simulatorFragment_to_simulationResultFragment"
             app:destination="@id/simulationResultFragment"
@@ -21,7 +21,7 @@
         android:id="@+id/simulationResultFragment"
         android:name="com.feliperce.investmentsimulator.feat.simulationresult.ui.SimulationResultFragment"
         android:label="fragment_simulation_result"
-        tools:layout="@layout/fragment_simulation_result" >
+        tools:layout="@layout/fragment_simulation_result">
         <argument
             android:name="InvestmentArg"
             app:argType="com.feliperce.investmentsimulator.data.remote.response.InvestmentSimulationResponse" />

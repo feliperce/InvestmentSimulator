@@ -1,8 +1,6 @@
 package com.feliperce.investmentsimulator.utils.extension
 
-import org.junit.Before
-
-import org.junit.Assert.*
+import org.junit.Assert.assertThat
 import org.junit.Test
 import java.math.BigDecimal
 import java.text.ParseException
@@ -18,12 +16,12 @@ class FormatExtensionTest {
         assertThat("1900-05-22T11:11:11".iso9801ToDateFormattedString(), Is("22/05/1900"))
     }
 
-    @Test(expected= ParseException::class)
+    @Test(expected = ParseException::class)
     fun `iso9801ToDateFormattedString default pattern invalid format throw ParseException`() {
         "jghjghjgj".iso9801ToDateFormattedString()
     }
 
-    @Test(expected= ParseException::class)
+    @Test(expected = ParseException::class)
     fun `iso9801ToDateFormattedString custom pattern invalid format throw ParseException`() {
         "jghjghjgj".iso9801ToDateFormattedString("yyyy-MM-dd")
     }
