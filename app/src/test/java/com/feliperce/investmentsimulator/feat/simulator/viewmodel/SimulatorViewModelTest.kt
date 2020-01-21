@@ -92,14 +92,8 @@ class SimulatorViewModelTest : AutoCloseKoinTest() {
 
     }
 
-    @Test
+    @Test(expected = NumberFormatException::class)
     fun `simulate error return numberformat exception`() = runBlocking {
-        try {
-            viewModel.simulate("", "CDI", "100", false, "20/3/2021")
-            assert(false)
-        } catch (numberException: NumberFormatException) {
-            assert(true)
-        }
-
+        viewModel.simulate("", "CDI", "100", false, "20/3/2021")
     }
 }
