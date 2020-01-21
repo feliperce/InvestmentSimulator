@@ -7,7 +7,8 @@ ext {
     coroutines_version = '1.3.2'
     constraintlayout_version = '1.1.3'
     junit_version = '4.12'
-    androidxtest_version = '1.1.0'
+    androidxjunit_version = '1.1.0'
+    androidxtest_version = '1.2.0'
     espresso_version = '3.1.1'
     ktx_version = '1.1.0'
     appcompat_version = '1.1.0'
@@ -17,6 +18,7 @@ ext {
     okhttpinterceptor_version = '3.9.1'
     gsonconverter_version = '2.5.0'
     mockwebserver_version = '4.2.1'
+    hamcrest = '1.3'
 }
 
 buildscript {

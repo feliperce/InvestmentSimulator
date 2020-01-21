@@ -52,7 +52,7 @@ fun BigDecimal.toCurrencyString(locale: Locale = Locale("pt", "BR")): String {
     var formatted = NumberFormat.getCurrencyInstance(locale).format(this)
     val replaceable =
         String.format(
-            "[%s\\s]",
+            "[%s\\s\\$]",
             NumberFormat.getCurrencyInstance(locale).currency?.symbol
         )
     return formatted.replace(replaceable.toRegex(), "")

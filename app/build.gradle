@@ -15,12 +15,12 @@ android {
         enabled true
     }
 
-    compileSdkVersion 29
+    compileSdkVersion 28
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.feliperce.investmentsimulator"
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -57,9 +57,17 @@ dependencies {
     // Test
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test.ext:junit:$androidxtest_version"
+    androidTestImplementation "androidx.test.ext:junit:$androidxjunit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     testImplementation "org.robolectric:robolectric:$robolectric_version"
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest"
+    testImplementation "androidx.test:core:$androidxtest_version"
+    testImplementation "androidx.test:runner:$androidxtest_version"
+    testImplementation "androidx.test.ext:truth:$androidxtest_version"
+    testImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    testImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
+    debugImplementation 'androidx.fragment:fragment-testing:1.1.0'
+    debugImplementation 'android.arch.lifecycle:livedata:1.1.1'
 
     // Navigation Component
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
